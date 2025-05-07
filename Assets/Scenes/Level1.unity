@@ -24917,6 +24917,8 @@ MonoBehaviour:
   currentSouls: {fileID: 1914489616}
   soulsAmount: 0
   increaseRate: 9999
+  timerText: {fileID: 0}
+  timeRemain: 0
 --- !u!1 &142005469
 GameObject:
   m_ObjectHideFlags: 0
@@ -28654,7 +28656,7 @@ GameObject:
   - component: {fileID: 295874921}
   - component: {fileID: 295874922}
   - component: {fileID: 295874923}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BG_City_Layer (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37209,7 +37211,7 @@ GameObject:
   - component: {fileID: 543926837}
   - component: {fileID: 543926836}
   - component: {fileID: 543926838}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BG_City_Layer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38409,7 +38411,7 @@ GameObject:
   m_Component:
   - component: {fileID: 630142870}
   - component: {fileID: 630142871}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BG_Sky_Layer (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40143,6 +40145,93 @@ RectTransform:
   m_AnchoredPosition: {x: -508, y: -194}
   m_SizeDelta: {x: 83, y: 83}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &704492146
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 704492148}
+  - component: {fileID: 704492147}
+  m_Layer: 0
+  m_Name: A*
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &704492147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704492146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78396926cbbfc4ac3b48fc5fc34a87d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  data:
+    dataString: UEsDBBQAAAgIAAA4IewClOtScwIAAC4FAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z2jAQ/SuMzoWx+Qr01hpCekjChHZy8UVIa6xBljySHCAZ/ntXso1d6ovlt5/v7cpfRChbAnPabIzgz5oD+T4g/ky+DTrjE5zpQaud+ITW511wl3snGnzeqBMa8diHWV2AM4L9UAfpnSMEKyUybYo1P0CirbMIZ1RaQJPRzkcrhL4G5Iyv4dKHXPA0fvCnTzwto8EVjwyUA9O5ThrHaDSL/DNp3Bej5TR6WCzXw2gRAivFJC1K4J5FFx+Px02GSTwKGeJl8FdItHH1pJiWUtimS+IuZVAhoaWtkCM6cEGRdWgtHvmcOYhD7jyHfvhrlllwjSiGXlbCoHx1XvJT15oW1B7rFj+orHylmkOd8vk/6zAO5szo4qmtGke+gssFO77RC6PW9STvw6te40GnE5VHupfwnoN60RujK8XR6EzlQysL41X3eSOW5MCOHV63egdWZSd8O+F2vp7DNXA/J1IU+zDTaQ3spA56h7UAg5P5hQ2HpbFNCkR9F38s/KaH/nY1hkdhrENTw1L59va6Mt6VrINmnk3lEm0UBLhpugRFpbtsMY27H+CdrVf2zvJI/T1qije29nrchQS484+iO9NWn27Dsrk+PYPNXysnhYKuaW94QZ0SrVS9X31N2rBdZTLKemGHSvB/V4tMGGezxXwes2k8y/Z0OJ0vxmw65jOWUQ7ziITdEwp5UrmtG23kwampLrnCPWt/L4ONoWXYdW7oaSM+C92TXKhM75gBUK91hlvjYLAI3kq+5gIF2oFzQoV5k6+USM2OwNNbojQwXZ+doWmXJSWl+NDOIylJwv8kJR6+7fLWwIeAky/eJruS619QSwMEFAAACAgAADgh7NfFslFtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tJJxckqyqYWZmWGyiaFpWlKiromZhVGyiVGKaXJaYkqqmYFSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAADgh7AKU61JzAgAALgUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAADgh7NfFslFtAAAAeAAAAAkAJAAAAAAAAAAAAAAAwAIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAAB4AwAAAAA=
+    upgradeData: 
+    file_cachedStartup: {fileID: 0}
+    data_cachedStartup: 
+    cacheStartup: 0
+  showNavGraphs: 1
+  showUnwalkableNodes: 1
+  debugMode: 0
+  debugFloor: 0
+  debugRoof: 1
+  manualDebugFloorRoof: 0
+  showSearchTree: 0
+  unwalkableNodeDebugSize: 0.3
+  logPathResults: 1
+  maxNearestNodeDistance: 100
+  scanOnStartup: 1
+  fullGetNearestSearch: 0
+  prioritizeGraphs: 0
+  prioritizeGraphsLimit: 1
+  colorSettings:
+    _SolidColor: {r: 0.11764706, g: 0.4, b: 0.7882353, a: 0.9}
+    _UnwalkableNode: {r: 1, g: 0, b: 0, a: 0.5}
+    _BoundsHandles: {r: 0.29, g: 0.454, b: 0.741, a: 0.9}
+    _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: 0.5}
+    _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: 0.5}
+    _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
+    _AreaColors:
+    - {r: 0, g: 0, b: 0, a: 0}
+  tagNames: []
+  heuristic: 2
+  heuristicScale: 1
+  threadCount: 1
+  maxFrameTime: 1
+  batchGraphUpdates: 0
+  graphUpdateBatchingInterval: 0.2
+  euclideanEmbedding:
+    mode: 0
+    seed: 0
+    pivotPointRoot: {fileID: 0}
+    spreadOutCount: 1
+  showGraphs: 1
+--- !u!4 &704492148
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704492146}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.27729595, y: -5.0559897, z: -0.16304971}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &707538976
 GameObject:
   m_ObjectHideFlags: 0
@@ -59346,7 +59435,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1092950926}
   - component: {fileID: 1092950927}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BG_Sky_Layer (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74035,7 +74124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1514316879}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BackGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74268,6 +74357,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c7d88abc40ca2349ac9d446b1b91b80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceName: 
+  scene:
+    m_Handle: 0
   knockbackPower: {x: 7, y: 12}
   knockbackOffset: {x: 0.5, y: 2.8}
   knockbackDuration: 0.07
@@ -74413,6 +74505,7 @@ MonoBehaviour:
   soulsDropAmount:
     baseValue: 0
     modifiers: 
+  sceName: 
   level: 1
   percantageModifier: 0.4
 --- !u!70 &1531315306
@@ -84833,7 +84926,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1878157578}
   - component: {fileID: 1878157579}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BG_City_Layer (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85299,7 +85392,7 @@ GameObject:
   - component: {fileID: 1897599925}
   - component: {fileID: 1897599924}
   - component: {fileID: 1897599926}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BG_Sky_Layer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86895,7 +86988,7 @@ GameObject:
   - component: {fileID: 1971156528}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86912,6 +87005,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 926ad82cc5febcc49ab20cb7cc569d56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceName: 
+  scene:
+    m_Handle: 0
   knockbackPower: {x: 0, y: 0}
   knockbackOffset: {x: 0, y: 0}
   knockbackDuration: 0.3
@@ -90501,6 +90597,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2145970163}
+  - component: {fileID: 2145970164}
   m_Layer: 0
   m_Name: Enemies
   m_TagString: Untagged
@@ -90535,6 +90632,33 @@ Transform:
   - {fileID: 1531315301}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &2145970164
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145970162}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &206760738759665874
 GameObject:
   m_ObjectHideFlags: 0
@@ -96588,3 +96712,4 @@ SceneRoots:
   - {fileID: 815630984}
   - {fileID: 396379069}
   - {fileID: 1195680370}
+  - {fileID: 704492148}

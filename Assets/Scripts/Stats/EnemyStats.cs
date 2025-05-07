@@ -1,12 +1,16 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyStats : CharacterStats
 {
     private Enemy enemy;
+    private UI_HealthBar healthBar;
     private ItemDrop myDropSystem;
     public Stat soulsDropAmount;
+    public string sceName;
 
     [Header("Level details")]
     [SerializeField] private int level=1;
@@ -19,8 +23,9 @@ public class EnemyStats : CharacterStats
         ApplyLevelModifiers();
         base.Start();
         enemy = GetComponent<Enemy>();
+        healthBar = GetComponentInChildren<UI_HealthBar>();
         myDropSystem = GetComponent<ItemDrop>();
-
+        sceName = SceneManager.GetActiveScene().name;
     }
 
     private void ApplyLevelModifiers()
@@ -57,8 +62,20 @@ public class EnemyStats : CharacterStats
     public override void TakeDamage(int _damage)
     {
         base.TakeDamage(_damage);
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
         //enemy.DamageEffect();
     }
+
+    public void ResetStats()
+    {
+        enemy.cd.enabled = true;
+        currentHealth = maxHealth.GetValue() + vitality.GetValue() * 5;
+        healthBar.SetHealthBar();
+    }
+
     protected override void Die()
     {
         base.Die();
@@ -66,7 +83,11 @@ public class EnemyStats : CharacterStats
 
         PlayerManager.instance.currency += soulsDropAmount.GetValue();
         myDropSystem.GenerateDrop();
-
-        Destroy(gameObject, 5f);
+        
+        if (!(sceName.Equals("Extra")))
+        {
+            Destroy(gameObject, 5f);
+        }
+        
     }
 }

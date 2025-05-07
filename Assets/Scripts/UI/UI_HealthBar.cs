@@ -41,4 +41,9 @@ public class UI_HealthBar : MonoBehaviour
             myStats.onHealthChanged -= UpdateHealthUI;
     }
     private void FlipUI()=>myTransform.Rotate(0, 180, 0);
+
+    public void SetHealthBar()
+    {
+        InvokeRepeating(nameof(UpdateHealthUI), 0, 0.1f);
+    }
 }

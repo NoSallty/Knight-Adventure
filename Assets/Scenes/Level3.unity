@@ -29407,9 +29407,8 @@ MonoBehaviour:
   currentSouls: {fileID: 560693804}
   soulsAmount: 0
   increaseRate: 9999
-  RemainEnemy: {fileID: 301428135}
-  EnemyTotal: 0
-  EnemyKill: 0
+  timerText: {fileID: 0}
+  timeRemain: 0
 --- !u!114 &312708339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74127,6 +74126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c7d88abc40ca2349ac9d446b1b91b80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceName: 
+  scene:
+    m_Handle: 0
   knockbackPower: {x: 7, y: 12}
   knockbackOffset: {x: 0.5, y: 2.8}
   knockbackDuration: 0.07
@@ -74272,6 +74274,7 @@ MonoBehaviour:
   soulsDropAmount:
     baseValue: 0
     modifiers: 
+  sceName: 
   level: 1
   percantageModifier: 0.4
 --- !u!70 &1531315306
@@ -87227,7 +87230,7 @@ GameObject:
   - component: {fileID: 1971156528}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87244,6 +87247,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 926ad82cc5febcc49ab20cb7cc569d56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceName: 
+  scene:
+    m_Handle: 0
   knockbackPower: {x: 0, y: 0}
   knockbackOffset: {x: 0, y: 0}
   knockbackDuration: 0.3

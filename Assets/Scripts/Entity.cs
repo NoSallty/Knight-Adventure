@@ -90,7 +90,7 @@ public class Entity:MonoBehaviour
 
     }
 
-    private IEnumerator ReturnAfterDelay(float waitTime = 10f)
+    private IEnumerator ReturnAfterDelay(float waitTime = 2f)
     {
         yield return new WaitForSeconds(waitTime);
         gameObject.SetActive(false); 
@@ -156,8 +156,10 @@ public class Entity:MonoBehaviour
     {
         if (sceName == "Extra")
         {
-            ReturnToPool(10f);
+            ReturnToPool(3f);
+            return true;
         }
-        return true;
+        else
+            return true;
     }
 }

@@ -1,12 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Enemy_Skeleton : Enemy
 {
-
     #region States
     public SkeletonIdleState idleState { get; private set; }
     public SkeletonMoveState moveState { get; private set; }
@@ -44,8 +42,21 @@ public class Enemy_Skeleton : Enemy
     public override bool Die()
     {
         //CloseCounterAttackWindow();
+        //if (sceName == "Extra")
+        //{
+        //    base.Die();
+        //    return false;
+        //} else
+        //{
         base.Die();
+        //enemy.Die();
         stateMachine.ChangeState(deadState);
+        if ((sceName.Equals("Extra")))
+        {
+            stateMachine.ChangeState(idleState);
+        }
         return true;
+        //}
+            
     }
 }

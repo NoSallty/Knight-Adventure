@@ -27,6 +27,7 @@ public class UI_MainMenu : MonoBehaviour
     }
     public void ExitGame()
     {
+        fadeScreen.FadeOut();
         Application.Quit();
     }
 

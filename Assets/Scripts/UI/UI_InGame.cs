@@ -32,7 +32,7 @@ public class UI_InGame : MonoBehaviour
             playerStats.onHealthChanged += UpdateHealthUI;
 
         skills = SkillManager.instance;
-        timeRemain = 0;
+        timeRemain = 80;
     }
 
     // Update is called once per frame
