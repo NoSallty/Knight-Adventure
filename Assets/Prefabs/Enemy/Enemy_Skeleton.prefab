@@ -782,7 +782,7 @@ MonoBehaviour:
     modifiers: 
   sceName: 
   level: 1
-  percantageModifier: 0.4
+  percantageModifier: 0.45
 --- !u!70 &6792319578433697416
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -853,7 +853,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  speed: 1000
+  speed: 100
+  activateDistance: 500
   nextWayPointDistance: 3
   enemy: {fileID: 0}
 --- !u!114 &5847533588329894962

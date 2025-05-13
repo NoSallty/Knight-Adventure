@@ -21,7 +21,6 @@ public class ShadyDeadState : EnemyState
         base.Update();
         if (triggerCalled)
         {
-            
             enemy.SelfDestroy();
         }
     }

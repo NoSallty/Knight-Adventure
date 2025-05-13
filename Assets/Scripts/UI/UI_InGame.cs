@@ -21,18 +21,34 @@ public class UI_InGame : MonoBehaviour
     [SerializeField] private float soulsAmount;
     [SerializeField] private float increaseRate = 100;
 
+    [Header("Enemy info")]
+    //[SerializeField] private TextMeshProUGUI EnemyKilled;
+    [SerializeField] private TextMeshProUGUI RemainEnemy;
+    [SerializeField] private TextMeshProUGUI Enemys;
+    [SerializeField] private double EnemyTotal;
+    [SerializeField] private double EnemyKilled;
+
     [Header("Timer")]
     [SerializeField] private TextMeshProUGUI? timerText;
     [SerializeField] public float timeRemain;
 
     private SkillManager skills;
+    private GameObject[] eny;
     void Start()
     {
         if (playerStats != null)
             playerStats.onHealthChanged += UpdateHealthUI;
+        eny = GameObject.FindGameObjectsWithTag("Eny");
+        EnemyTotal = eny.Length;
+        Enemys.text = EnemyTotal.ToString();
 
         skills = SkillManager.instance;
-        timeRemain = 80;
+        timeRemain = 0;
+        //UpdateEnysUI();
+    }
+    void FixedUpdate()
+    {
+        UpdateEnysUI();
     }
 
     // Update is called once per frame
@@ -82,6 +98,34 @@ public class UI_InGame : MonoBehaviour
             soulsAmount = PlayerManager.instance.GetCurrency();
 
         currentSouls.text = ((int)soulsAmount).ToString();
+    }
+
+    //private double totalEnemies(GameObject[] eny)
+    //{
+    //    foreach (GameObject enemy in eny)
+    //    {
+    //        if (enemy != null)
+    //        {
+    //            EnemyTotal++;
+    //        }
+    //    }
+    //    return EnemyTotal;
+    //}
+    //private double killedEnemies()
+    //{
+    //    eny = GameObject.FindGameObjectsWithTag("Eny");
+    //    EnemyKill = (int)EnemyTotal - eny.Length;
+    //    return EnemyKill;
+    //}
+
+    private void UpdateEnysUI()
+    {
+        eny = GameObject.FindGameObjectsWithTag("Eny");
+        //EnemyTotal = totalEnemies(eny);
+        //Enemys.text = EnemyTotal.ToString();
+        //EnemyKill = killedEnemies();
+        //EnemyKilled.text = EnemyKill.ToString();
+        RemainEnemy.text = eny.Length.ToString();
     }
 
     private void UpdateHealthUI()

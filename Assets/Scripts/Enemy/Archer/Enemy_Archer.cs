@@ -56,6 +56,10 @@ public class Enemy_Archer : Enemy
         //CloseCounterAttackWindow();
         base.Die();
         stateMachine.ChangeState(deadState);
+        if ((sceName.Equals("Extra")))
+        {
+            stateMachine.ChangeState(idleState);
+        }
         return true;
     }
     public override void AnimationSpecialAttackTrigger()

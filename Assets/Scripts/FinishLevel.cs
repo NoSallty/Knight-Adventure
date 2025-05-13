@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
@@ -72,9 +73,22 @@ public class FinishLevel : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
-            if (isAll(eny)) { 
+            if (curName.Equals("Extra"))
+            {
+                GameData gameData = SaveManager.instance.gameData;
+                gameData.enemiesStatus.Clear();
                 finishSound.Play();
                 Invoke("CompleteLevel", 1f);
+            }
+            else
+            {
+                if (isAll(eny))
+                {
+                    GameData gameData = SaveManager.instance.gameData;
+                    gameData.enemiesStatus.Clear();
+                    finishSound.Play();
+                    Invoke("CompleteLevel", 1f);
+                }
             }
         }
     }

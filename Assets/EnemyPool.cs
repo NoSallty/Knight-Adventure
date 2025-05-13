@@ -5,6 +5,9 @@ public class EnemyPool : MonoBehaviour
 {
     public GameObject enemyPrefab; 
     public int poolSize = 5;
+    private float levelUpTime = 300f;
+    private float elapsedTime = 0f;
+    public int enemyLevel = 1;
 
     private Queue<GameObject> enemyPool = new Queue<GameObject>();
     //private List<GameObject> enemyPool;
@@ -18,6 +21,16 @@ public class EnemyPool : MonoBehaviour
             GameObject enemy = Instantiate(enemyPrefab, transform);
             enemy.SetActive(false);
             enemyPool.Enqueue(enemy);
+        }
+    }
+    void Update()
+    {
+        elapsedTime += Time.deltaTime;
+        if (elapsedTime >= levelUpTime)
+        {
+            enemyLevel += 3;
+            elapsedTime = 0f;
+            Debug.Log("Enemy level increased to: " + enemyLevel);
         }
     }
 
@@ -42,6 +55,11 @@ public class EnemyPool : MonoBehaviour
         else
         {
             GameObject enemy = Instantiate(enemyPrefab, transform);
+            EnemyStats stats = enemy.GetComponent<EnemyStats>();
+            if (stats != null)
+            {
+                stats.SetLevel(enemyLevel);
+            }
             enemy.SetActive(true);
             activeEnemies.Add(enemy);
             return enemy;
@@ -53,6 +71,7 @@ public class EnemyPool : MonoBehaviour
         if (stats != null)
         {
             stats.ResetStats();
+            stats.SetLevel(enemyLevel);
         }
 
         enemy.transform.position = Vector3.zero;

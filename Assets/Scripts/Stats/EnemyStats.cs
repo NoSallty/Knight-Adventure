@@ -13,7 +13,7 @@ public class EnemyStats : CharacterStats
     public string sceName;
 
     [Header("Level details")]
-    [SerializeField] private int level=1;
+    [SerializeField] public int level=1;
 
     [Range(0f, 1f)]
     [SerializeField] private float percantageModifier=.4f;
@@ -74,6 +74,12 @@ public class EnemyStats : CharacterStats
         enemy.cd.enabled = true;
         currentHealth = maxHealth.GetValue() + vitality.GetValue() * 5;
         healthBar.SetHealthBar();
+    }
+
+    public void SetLevel(int newLevel)
+    {
+        level = newLevel;
+        ApplyLevelModifiers();
     }
 
     protected override void Die()

@@ -6,6 +6,42 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/MainMenu.unity
+    guid: 71151aa87a4d73f488eba98f9b7eef9f
+  - enabled: 1
+    path: Assets/Scenes/StoryLine.unity
+    guid: d65b027bf5b793347a0165242dc1b36e
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 565e876e4be96a64b81fe6289fce15c6
+  - enabled: 1
+    path: Assets/Scenes/LevelSelect.unity
+    guid: f4233dbc5d7bd964e9a343a1242f7bf9
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 6299166ff6c066845b5951e105c871e3
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: a5c4545232783f6488ea5194d3b38d95
+  - enabled: 1
+    path: Assets/Scenes/Level4.unity
+    guid: 22d04af2d5a34cf44bddab5e1a077e0e
+  - enabled: 1
+    path: Assets/Scenes/Level5.unity
+    guid: f18bd1c10da9bfd418764c59f01a9721
+  - enabled: 1
+    path: Assets/Scenes/Boss.unity
+    guid: 99c166c85ec9f694b9c9654b2c0d75d7
+  - enabled: 1
+    path: Assets/Scenes/EndGame.unity
+    guid: 95cf6c009bcf1f544913b4f6f162d856
+  - enabled: 1
+    path: Assets/Scenes/Extra.unity
+    guid: e643daaad1e648040828620c22118623
+  - enabled: 1
+    path: Assets/Scenes/EndExtra.unity
+    guid: ce3bd3409f251b34ea1b593d98f49d59
   m_configObjects: {}

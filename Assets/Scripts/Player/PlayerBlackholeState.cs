@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 public class PlayerBlackholeState : PlayerState
 {
     private float flyTime = .4f;

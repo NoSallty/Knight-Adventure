@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+
 [System.Serializable]
 public class GameData
 {
@@ -11,6 +13,7 @@ public class GameData
     public List<string> equipmentId;
 
     public SerializableDictionary<string, bool> checkpoints;
+    public SerializableDictionary<string, bool> enemiesStatus;
     public string closestCheckpointId;
 
     public float lostCurrencyX;
@@ -25,6 +28,7 @@ public class GameData
         this.lostCurrencyAmount = 0;
 
         this.currency = 0;
+        enemiesStatus = new SerializableDictionary<string, bool>();
         skillTree = new SerializableDictionary<string, bool>();
         inventory = new SerializableDictionary<string, int>();
         equipmentId = new List<string>();

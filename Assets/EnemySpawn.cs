@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemySpawn : MonoBehaviour
 {
     public EnemyPool enemyPool;
+    public GameObject door;
     public List<EnemyPool> enemyPools;
     public float spawnInterval = 5.0f;
     public UI_InGame uiInGame;
@@ -18,6 +19,15 @@ public class EnemySpawn : MonoBehaviour
     void FixedUpdate()
     {
         time = uiInGame.timeRemain;
+        if (door != null)
+        {
+            var bossHeatlh = boss.GetComponent<EnemyStats>();
+            if (time >= 902f && bossHeatlh.currentHealth <= 0)
+            {
+                door.SetActive(true);
+            }
+        }
+
         if (time >= 900f)
         {
             enemyPools.RemoveAll(pool => pool == null);
@@ -27,8 +37,10 @@ public class EnemySpawn : MonoBehaviour
             }
             CancelInvoke(nameof(SpawnEnemy));
             boss.SetActive(true);
-
         }
+
+        var player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null) { CancelInvoke(nameof(SpawnEnemy)); }
     }
 
     void SpawnEnemy()
@@ -38,7 +50,7 @@ public class EnemySpawn : MonoBehaviour
 
         GameObject enemy = selectedPool.GetEnemy();
         //GameObject enemy = enemyPool.GetEnemy();
-        enemy.transform.position = new Vector3(Random.Range(-5f, 5f), 0, Random.Range(-5f, 5f));
+        enemy.transform.position = new Vector3(Random.Range(-40f, 40f), 0, Random.Range(-5f, 5f));
         //if (enemyPool.ActiveEnemyCount() < enemyPool.poolSize)
         //{
         //    GameObject enemy = enemyPool.GetEnemy();

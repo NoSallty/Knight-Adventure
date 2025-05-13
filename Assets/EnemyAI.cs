@@ -9,6 +9,7 @@ public class EnemyAI : MonoBehaviour
     public Transform player;
 
     public float speed = 200f;
+    public float activateDistance = 500f;
     public float nextWayPointDistance = 3f;
 
     public Transform enemy;
@@ -28,13 +29,13 @@ public class EnemyAI : MonoBehaviour
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         enemy = GetComponent<Transform>();
-        
+
         InvokeRepeating("UpdatePath", 0f, 0.5f);
     }
 
     void UpdatePath()
     {
-        if (seeker.IsDone())
+        if (TargetInDistance() && seeker.IsDone())
         {
             seeker.StartPath(rb.position, player.position, OnPathComplete);
         }
@@ -50,6 +51,10 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    private bool TargetInDistance()
+    {
+        return Vector2.Distance(transform.position, player.transform.position) < activateDistance;
+    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -58,7 +63,7 @@ public class EnemyAI : MonoBehaviour
         //player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 
         if (path == null)
-            return; 
+            return;
 
         if (currentWayPoint >= path.vectorPath.Count)
         {
@@ -74,6 +79,9 @@ public class EnemyAI : MonoBehaviour
         Vector2 force = direction * speed * Time.deltaTime;
 
         rb.AddForce(force);
+
+        if (enemy.name.Equals("Enemy_Skeleton(Clone)") || enemy.name.Equals("Enemy_Shady(Clone)"))
+            rb.velocity = new Vector2(force.x, rb.velocity.y);
 
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWayPoint]);
 

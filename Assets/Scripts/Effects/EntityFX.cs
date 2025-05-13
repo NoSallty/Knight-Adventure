@@ -3,6 +3,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
+
 public class EntityFX : MonoBehaviour
 {
     protected Player player;

@@ -1,9 +1,9 @@
 ﻿using System.Collections;
-using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.TestTools;
 using UnityEngine.SceneManagement;
+using NUnit.Framework;
 
 [TestFixture]
 public class MainMenuTests
@@ -36,28 +36,29 @@ public class MainMenuTests
     {
         // Giả lập nhấp vào nút Start
         var startButton = mainMenu.transform.Find("New game").GetComponent<Button>();
-
+        Assert.IsNotNull(startButton, "Nút 'New game' không được tìm thấy.");
         startButton.onClick.Invoke();
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(5f); // Chờ một chút để Scene chuyển đổi
 
         // Kiểm tra xem Scene đã chuyển đổi thành Game Scene
         Assert.AreEqual("StoryLine", SceneManager.GetActiveScene().name, "Chưa chuyển đến Game Scene.");
     }
 
     [UnityTest]
-    public IEnumerator Test_OptionsButton_OpensOptionsMenu()
+    public IEnumerator Test_LevelSelectButton_OpensLevelSelectMenu()
     {
         // Giả lập nhấp vào nút Options
-        var optionsButton = mainMenu.transform.Find("Continue").GetComponent<Button>();
+        var optionsButton = mainMenu.transform.Find("LevelSelect").GetComponent<Button>();
+        Assert.IsNotNull(optionsButton, "Nút 'LevelSelect' không được tìm thấy.");
         optionsButton.onClick.Invoke();
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(5f); // Chờ một chút để Scene chuyển đổi
 
-        // Kiểm tra xem menu Options đã mở
-        var optionsMenu = SceneManager.GetActiveScene().name;
-        Assert.IsNotNull(optionsMenu, "Options Menu không được tìm thấy.");
-        Assert.IsTrue(optionsMenu.Equals("LevelSelect"), "Options Menu phải hiển thị.");
+        // Kiểm tra xem menu đã mở
+        var optionsMenu = GameObject.Find("LevelSelect");
+        Assert.IsNotNull(optionsMenu, "Level Select không được tìm thấy.");
+        Assert.IsTrue(optionsMenu.activeSelf, "Level Select phải hiển thị.");
     }
 
     [UnityTest]
@@ -65,30 +66,13 @@ public class MainMenuTests
     {
         // Giả lập nhấp vào nút Exit
         var exitButton = mainMenu.transform.Find("Exit game").GetComponent<Button>();
-        UnityEngine.Debug.Log(exitButton);
         Assert.IsNotNull(exitButton, "Nút 'Exit game' không được tìm thấy.");
         exitButton.onClick.Invoke();
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(5f); // Chờ một chút để Scene chuyển đổi
 
         // Kiểm tra xem trò chơi đã thoát
         Assert.IsFalse(Application.isPlaying, "Trò chơi không thoát.");
     }
 
-    [TearDown]
-    public void Teardown()
-    {
-        // Dọn dẹp sau mỗi bài kiểm thử nếu cần
-    }
-}
-
-public class GameStateManager : MonoBehaviour
-{
-    public static bool IsGameStarted { get; private set; }
-
-    public void StartGame()
-    {
-        IsGameStarted = true;
-        // Bắt đầu game logic ở đây
-    }
 }

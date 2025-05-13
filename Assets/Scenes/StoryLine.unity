@@ -609,7 +609,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1290384829508133016, guid: a696f1ce57bb5764b9cfd4788f016d58, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2888353271325623330, guid: a696f1ce57bb5764b9cfd4788f016d58, type: 3}
       propertyPath: m_Pivot.x
@@ -1512,7 +1512,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Tutorial
-  continueButton: {fileID: 1131650444}
   fadeScreen: {fileID: 1610200567}
 --- !u!114 &1623682701
 MonoBehaviour:

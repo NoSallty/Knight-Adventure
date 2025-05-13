@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
@@ -9,7 +9,7 @@ public class SaveManager : MonoBehaviour
     [SerializeField] private string fileName;
     [SerializeField] private bool encryptData;
 
-    private GameData gameData;
+    public GameData gameData;
     [SerializeField] private List<ISaveManager> saveManagers;
     private FileDataHandler dataHandler;
 
@@ -49,11 +49,26 @@ public class SaveManager : MonoBehaviour
             Debug.Log("No saved data found!");
             NewGame();
         }
-        foreach(ISaveManager saveManager in saveManagers)
+
+        foreach (ISaveManager saveManager in saveManagers)
         {
             saveManager.LoadData(gameData);
         }
-        
+
+        List<KeyValuePair<string, bool>> enemiesToUpdate = gameData.enemiesStatus.ToList();
+
+        foreach (var enemyStatus in enemiesToUpdate)
+        {
+            GameObject enemy = GameObject.Find(enemyStatus.Key);
+            if (enemy != null)
+            {
+                Enemy enemyComponent = enemy.GetComponent<Enemy>();
+                if (enemyComponent != null && enemyStatus.Value)
+                {
+                    enemy.SetActive(false); 
+                }
+            }
+        }
     }
     public void SaveGame()
     {

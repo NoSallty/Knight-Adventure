@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -116,8 +116,10 @@ public class Entity:MonoBehaviour
     }
     #endregion
     #region Collision
-    public virtual bool isGroundDetected() => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
-    public virtual bool IsWallDetected() => Physics2D.Raycast(wallCheck.position, Vector2.right * facingDir, wallCheckDistance, whatIsGround);
+    public virtual bool isGroundDetected() 
+        => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
+    public virtual bool IsWallDetected() 
+        => Physics2D.Raycast(wallCheck.position, Vector2.right * facingDir, wallCheckDistance, whatIsGround);
     protected virtual void OnDrawGizmos()
     {
         Gizmos.DrawLine(groundCheck.position, new Vector3(groundCheck.position.x, groundCheck.position.y - groundCheckDistance));
@@ -160,6 +162,12 @@ public class Entity:MonoBehaviour
             return true;
         }
         else
-            return true;
+            if (SaveManager.instance != null && SaveManager.instance.gameData != null)
+        {
+            string enemyId = this.gameObject.name; 
+            SaveManager.instance.gameData.enemiesStatus[enemyId] = true; 
+        }
+
+        return true;
     }
 }

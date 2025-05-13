@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 59118417}
   - component: {fileID: 59118416}
   m_Layer: 5
-  m_Name: Continue
+  m_Name: LevelSelect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -313,7 +313,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Continue
+  m_text: Level Select
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 84bdc42b70bb5e54aa18bb33c1fa834e, type: 2}
   m_sharedMaterial: {fileID: -8065883861848785263, guid: 84bdc42b70bb5e54aa18bb33c1fa834e, type: 2}
@@ -517,7 +517,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: StoryLine
-  continueButton: {fileID: 59118414}
   fadeScreen: {fileID: 1883955466}
 --- !u!114 &809592520
 MonoBehaviour:
@@ -837,7 +836,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 53cd6c8dc3147e74ab9eb11728b2ad67, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 66d32f10eb6e1d44ba884d349c463eef, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

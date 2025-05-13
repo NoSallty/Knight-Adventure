@@ -11,11 +11,13 @@ public class Enemy_Shady : Enemy
     [SerializeField] private GameObject explosivePrefab;
     [SerializeField] private float growSpeed;
     [SerializeField] private float maxSize;
+
+    //public string sceName;
     #region
     public ShadyIdleState idleState { get; private set; }
     public ShadyMoveState moveState { get; private set; }
     public ShadyDeadState deadState { get; private set; }
-    public ShadyStunnedState stunnedState {get;private set;}
+    public ShadyStunnedState stunnedState { get; private set; }
     public ShadyBattleState battleState { get; private set; }
     #endregion
     protected override void Awake()
@@ -30,6 +32,7 @@ public class Enemy_Shady : Enemy
     protected override void Start()
     {
         base.Start();
+
         stateMachine.Initialize(idleState);
     }
     public override bool CanBeStunned()
@@ -59,5 +62,16 @@ public class Enemy_Shady : Enemy
         cd.enabled = false;
         rb.gravityScale = 0;
     }
-    public void SelfDestroy() => Destroy(gameObject);
+    public void SelfDestroy()
+    {
+        if (!sceName.Equals("Extra"))
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            gameObject.SetActive(false);
+            stateMachine.ChangeState(idleState);
+        }
+    }
 }
