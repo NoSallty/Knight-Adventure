@@ -80,7 +80,7 @@ public class EnemyAI : MonoBehaviour
 
         rb.AddForce(force);
 
-        if (enemy.name.Equals("Enemy_Skeleton(Clone)") || enemy.name.Equals("Enemy_Shady(Clone)"))
+        if (enemy.name.Equals("Enemy_Skeleton(Clone)"))
             rb.velocity = new Vector2(force.x, rb.velocity.y);
 
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWayPoint]);

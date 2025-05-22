@@ -44,6 +44,11 @@ public class UI_MainMenu : MonoBehaviour
         fadeScreen.FadeOut();
         SceneManager.LoadScene("MainMenu");
     }
+    public void LoadTuto()
+    {
+        fadeScreen.FadeOut();
+        SceneManager.LoadScene("Tutorial");
+    }
     public void LoadLevel_1()
     {
         fadeScreen.FadeOut();

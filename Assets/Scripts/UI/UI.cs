@@ -9,6 +9,7 @@ public class UI : MonoBehaviour,ISaveManager
     [SerializeField] private UI_FadeScreen fadeScreen;
     [SerializeField] private GameObject endText;
     [SerializeField] private GameObject restartButton;
+    [SerializeField] private GameObject restartPic;
     [Space]
 
     [SerializeField] private GameObject characterUI;
@@ -97,6 +98,8 @@ public class UI : MonoBehaviour,ISaveManager
     }
     IEnumerator EndScreenCorutione()
     {
+        yield return new WaitForSeconds(1);
+        restartPic.SetActive(true);
         yield return new WaitForSeconds(1);
         endText.SetActive(true);
         yield return new WaitForSeconds(1.5f);

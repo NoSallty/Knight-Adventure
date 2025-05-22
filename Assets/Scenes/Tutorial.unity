@@ -25125,8 +25125,11 @@ MonoBehaviour:
   soulsAmount: 0
   increaseRate: 9999
   RemainEnemy: {fileID: 627991330}
+  Enemys: {fileID: 225997657}
   EnemyTotal: 0
-  EnemyKill: 0
+  EnemyKilled: 0
+  timerText: {fileID: 0}
+  timeRemain: 0
 --- !u!1 &142005469
 GameObject:
   m_ObjectHideFlags: 0
@@ -43089,7 +43092,9 @@ PrefabInstance:
       propertyPath: ColorModule.gradient.maxGradient.key1.a
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8880874835827262752, guid: 470107078752cce46936e730a13fc9bc, type: 3}
+    - {fileID: 5847533588329894962, guid: 470107078752cce46936e730a13fc9bc, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -75154,6 +75159,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c7d88abc40ca2349ac9d446b1b91b80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceName: 
+  scene:
+    m_Handle: 0
   knockbackPower: {x: 7, y: 12}
   knockbackOffset: {x: 0.5, y: 2.8}
   knockbackDuration: 0.07
@@ -75299,6 +75307,7 @@ MonoBehaviour:
   soulsDropAmount:
     baseValue: 0
     modifiers: 
+  sceName: 
   level: 1
   percantageModifier: 0.4
 --- !u!70 &1481480159
@@ -76516,6 +76525,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c7d88abc40ca2349ac9d446b1b91b80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceName: 
+  scene:
+    m_Handle: 0
   knockbackPower: {x: 7, y: 12}
   knockbackOffset: {x: 0.5, y: 2.8}
   knockbackDuration: 0.07
@@ -76661,6 +76673,7 @@ MonoBehaviour:
   soulsDropAmount:
     baseValue: 0
     modifiers: 
+  sceName: 
   level: 1
   percantageModifier: 0.4
 --- !u!70 &1531315306
@@ -90318,6 +90331,7 @@ MonoBehaviour:
   fadeScreen: {fileID: 674185909}
   endText: {fileID: 698358546}
   restartButton: {fileID: 1491236999}
+  restartPic: {fileID: 0}
   characterUI: {fileID: 1774462079}
   skillTreeUI: {fileID: 473100432}
   craftUI: {fileID: 567645948}
@@ -90365,6 +90379,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 926ad82cc5febcc49ab20cb7cc569d56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceName: 
+  scene:
+    m_Handle: 0
   knockbackPower: {x: 0, y: 0}
   knockbackOffset: {x: 0, y: 0}
   knockbackDuration: 0.3
@@ -94186,6 +94203,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c7d88abc40ca2349ac9d446b1b91b80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceName: 
+  scene:
+    m_Handle: 0
   knockbackPower: {x: 7, y: 12}
   knockbackOffset: {x: 0.5, y: 2}
   knockbackDuration: 0.07
@@ -94325,6 +94345,7 @@ MonoBehaviour:
   soulsDropAmount:
     baseValue: 0
     modifiers: 
+  sceName: 
   level: 1
   percantageModifier: 0.4
 --- !u!70 &2143435657
@@ -95127,7 +95148,13 @@ PrefabInstance:
       propertyPath: ColorModule.gradient.maxGradient.key1.a
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8880874835827262752, guid: 470107078752cce46936e730a13fc9bc, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8880874835827262752, guid: 470107078752cce46936e730a13fc9bc, type: 3}
+    - {fileID: 5847533588329894962, guid: 470107078752cce46936e730a13fc9bc, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6903813741045543334, guid: 470107078752cce46936e730a13fc9bc, type: 3}

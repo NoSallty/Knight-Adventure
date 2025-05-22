@@ -67,6 +67,18 @@ public class FinishLevel : MonoBehaviour
         {
             return true;
         }
+        else if (died >= total && curName.Equals("Level4"))
+        {
+            return true;
+        }
+        else if (died >= total && curName.Equals("Level5"))
+        {
+            return true;
+        }
+        else if (died >= total && curName.Equals("Extra"))
+        {
+            return true;
+        }
         return false;
     }
     private void OnTriggerEnter2D(Collider2D collision)
